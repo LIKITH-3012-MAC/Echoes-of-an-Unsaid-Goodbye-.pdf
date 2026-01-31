@@ -1,89 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Echoes of an Unsaid Goodbye</title>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<!-- HERO -->
+<!-- Hero Section -->
 <section class="hero">
   <div class="hero-content">
     <h1 class="title">Echoes of an Unsaid Goodbye</h1>
     <p class="subtitle">— Misery of a Man — The Tales —</p>
+
     <div class="hero-buttons">
       <button id="readBook">Read Entire Tales</button>
       <button id="downloadBook">Download PDF</button>
     </div>
   </div>
+
   <canvas id="particles"></canvas>
 </section>
 
-<!-- CHAPTERS -->
+<!-- Chapters -->
 <section class="chapters">
   <h2>Chapters</h2>
+
   <div class="chapter-cards">
     <div class="chapter-card">
       <h3>Chapter 1</h3>
-      <p>— The First Meet —</p>
+      <p>— The First Meet — Love at First Sight, My Angel of Light —</p>
     </div>
+
     <div class="chapter-card">
       <h3>Chapter 2</h3>
-      <p>— Hidden Love —</p>
+      <p>— Hidden Love — Care Turned Into Silence —</p>
     </div>
+
     <div class="chapter-card">
       <h3>Chapter 3</h3>
-      <p>— The Unsaid Goodbye —</p>
+      <p>— The Unsaid Goodbye — Where Words Never Spoke —</p>
     </div>
   </div>
 </section>
 
-<!-- REVIEW SECTION -->
+<!-- Review Section -->
 <section class="review-section">
-  <h2>Leave a Review ✍️</h2>
-  <p>Your words matter. Share your feelings.</p>
+  <h2>Leave a Review</h2>
+  <p class="review-subtitle">Your words mean everything 💭</p>
 
   <form
-  id="reviewForm"
-  action="https://formspree.io/f/xaqjzgel"
-  method="POST"
->
-  <input type="hidden" name="_subject" value="New Book Review">
-  <input type="hidden" name="_redirect" value="thankyou.html">
+    action="https://formspree.io/f/xaqjzgel"
+    method="POST"
+  >
+    <input type="hidden" name="_next" value="thankyou.html">
 
-  <label>Your Email</label>
-  <input type="email" name="email" required>
+    <label>
+      Your Email
+      <input type="email" name="email" required placeholder="you@example.com">
+    </label>
 
-  <label>Your Review</label>
-  <textarea name="message" rows="5" required></textarea>
+    <label>
+      Your Review
+      <textarea name="message" required placeholder="Write what you felt..."></textarea>
+    </label>
 
-  <button type="submit">Send Review 🚀</button>
-</form>
-
+    <button type="submit">Send Review</button>
+  </form>
 </section>
 
-<!-- PDF MODAL -->
+<!-- PDF Modal -->
 <div id="pdfModal" class="modal">
   <span class="close">&times;</span>
   <iframe id="pdfFrame"></iframe>
 </div>
 
-<!-- SUCCESS ROCKET MODAL -->
-<div id="rocket-success-modal" class="success-modal-overlay">
-  <div class="success-card">
-    <div class="rocket">🚀</div>
-    <div class="success-text">Review Sent Successfully!</div>
-  </div>
-</div>
-
-<!-- JS -->
 <script src="script.js"></script>
 </body>
 </html>
