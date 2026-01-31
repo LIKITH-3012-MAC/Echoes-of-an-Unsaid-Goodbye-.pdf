@@ -1,31 +1,38 @@
-/* ================= PDF HANDLING ================= */
+const pdfFile = 'https://pdfhost.io/v/bxCpZ8TVVm_Echoes_of_an_Unsaid_Goodbye';
 
-const pdfFile = "https://pdfhost.io/v/bxCpZ8TVVm_Echoes_of_an_Unsaid_Goodbye";
+const readBtn = document.getElementById('readBook');
+const downloadBtn = document.getElementById('downloadBook');
+const modal = document.getElementById('pdfModal');
+const pdfFrame = document.getElementById('pdfFrame');
+const closeModal = document.querySelector('.close');
 
-const readBtn = document.getElementById("readBook");
-const downloadBtn = document.getElementById("downloadBook");
-const modal = document.getElementById("pdfModal");
-const pdfFrame = document.getElementById("pdfFrame");
-const closeBtn = document.querySelector(".close");
-
-readBtn.addEventListener("click", () => {
+readBtn.onclick = () => {
   pdfFrame.src = pdfFile;
-  modal.style.display = "block";
-});
+  modal.style.display = 'block';
+};
 
-downloadBtn.addEventListener("click", () => {
-  window.open(pdfFile, "_blank");
-});
+downloadBtn.onclick = () => {
+  const link = document.createElement('a');
+  link.href = pdfFile;
+  link.download = 'Echoes_of_an_Unsaid_Goodbye.pdf';
+  link.click();
+};
 
-closeBtn.addEventListener("click", () => {
-  modal.style.display = "none";
-  pdfFrame.src = "";
-});
+closeModal.onclick = () => {
+  modal.style.display = 'none';
+  pdfFrame.src = '';
+};
 
-/* ================= PARTICLES ================= */
+window.onclick = e => {
+  if (e.target === modal) {
+    modal.style.display = 'none';
+    pdfFrame.src = '';
+  }
+};
 
-const canvas = document.getElementById("particles");
-const ctx = canvas.getContext("2d");
+/* Particles */
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
@@ -47,62 +54,26 @@ class Particle {
     if (this.y < 0 || this.y > canvas.height) this.dy *= -1;
   }
   draw() {
-    ctx.fillStyle = "rgba(255,255,255,0.8)";
+    ctx.fillStyle = 'rgba(255,255,255,0.8)';
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
     ctx.fill();
   }
 }
 
-function initParticles() {
+function init() {
   particles = [];
-  for (let i = 0; i < 100; i++) {
-    particles.push(new Particle());
-  }
+  for (let i = 0; i < 100; i++) particles.push(new Particle());
 }
 
-function animateParticles() {
+function animate() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   particles.forEach(p => {
     p.update();
     p.draw();
   });
-  requestAnimationFrame(animateParticles);
+  requestAnimationFrame(animate);
 }
 
-initParticles();
-animateParticles();
-
-/* ================= REVIEW FORM (FIXED) ================= */
-
-const reviewForm = document.getElementById("reviewForm");
-const successModal = document.getElementById("rocket-success-modal");
-
-reviewForm.addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  const formData = new FormData(reviewForm);
-
-  try {
-    const response = await fetch(reviewForm.action, {
-      method: "POST",
-      body: formData,
-      headers: {
-        "Accept": "application/json"
-      }
-    });
-
-    if (response.ok) {
-      successModal.style.display = "flex";
-      reviewForm.reset();
-
-      setTimeout(() => {
-        successModal.style.display = "none";
-      }, 3000);
-    } else {
-      alert("❌ Review not sent. Try again.");
-    }
-  } catch (err) {
-    alert("⚠️ Network error. Please check your internet.");
-  }
-});
+init();
+animate();
