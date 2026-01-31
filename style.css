@@ -1,172 +1,175 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-  }
-  
-  body {
-    background: #f5f0e1;
-    color: #333;
-    overflow-x: hidden;
-  }
-  
-  /* HERO */
-  .hero {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(135deg, #8a2be2, #f5e1da);
-    position: relative;
-    text-align: center;
-  }
-  
-  .hero-content {
-    z-index: 2;
-  }
-  
-  .title {
-    font-family: 'Great Vibes', cursive;
-    font-size: 3.5rem;
-    color: white;
-  }
-  
-  .subtitle {
-    color: white;
-    margin: 20px 0;
-    opacity: 0.9;
-  }
-  
-  .hero-buttons button {
-    padding: 12px 25px;
-    margin: 10px;
-    border: none;
-    border-radius: 10px;
-    background: gold;
-    cursor: pointer;
-    font-weight: bold;
-  }
-  
-  .hero-buttons button:hover {
-    transform: scale(1.1);
-  }
-  
-  /* PARTICLES */
-  #particles {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-  }
-  
-  /* CHAPTERS */
-  .chapters {
-    padding: 60px 20px;
-    background: white;
-    text-align: center;
-  }
-  
-  .chapter-cards {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-  
-  .chapter-card {
-    background: #f5e1da;
-    padding: 25px;
-    border-radius: 15px;
-    width: 280px;
-    transition: 0.3s;
-  }
-  
-  .chapter-card:hover {
-    transform: scale(1.05);
-  }
-  
-  /* REVIEW SECTION */
-  .review-section {
-    padding: 70px 20px;
-    text-align: center;
-    background: linear-gradient(135deg, #fff, #f5e1da);
-  }
-  
-  .review-section form {
-    max-width: 450px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .review-section input,
-  .review-section textarea {
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-  }
-  
-  .review-section button {
-    padding: 14px;
-    border-radius: 10px;
-    border: none;
-    background: #8a2be2;
-    color: white;
-    cursor: pointer;
-  }
-  
-  /* PDF MODAL */
-  .modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.9);
-    z-index: 1000;
-  }
-  
-  .modal iframe {
-    width: 90%;
-    height: 90%;
-    margin: 5% auto;
-    display: block;
-    border-radius: 15px;
-  }
-  
-  .close {
-    position: absolute;
-    top: 20px;
-    right: 40px;
-    font-size: 40px;
-    color: white;
-    cursor: pointer;
-  }
-  
-  /* SUCCESS ROCKET */
-  .success-modal-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.85);
-    z-index: 2000;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .success-card {
-    background: white;
-    padding: 40px;
-    border-radius: 20px;
-    text-align: center;
-  }
-  
-  .rocket {
-    font-size: 4rem;
-    animation: launch 1.5s ease forwards;
-  }
-  
-  @keyframes launch {
-    from { transform: translateY(60px); opacity: 0; }
-    to { transform: translateY(-40px); opacity: 1; }
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #f5f0e1;
+  color: #333;
+}
+
+/* Hero */
+.hero {
+  height: 100vh;
+  background: linear-gradient(135deg, #8a2be2, #f5e1da);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  z-index: 2;
+  text-align: center;
+}
+
+.title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3.8rem;
+  color: white;
+}
+
+.subtitle {
+  color: white;
+  opacity: 0.8;
+  margin: 15px 0 30px;
+}
+
+.hero-buttons button {
+  padding: 12px 25px;
+  margin: 10px;
+  border: none;
+  border-radius: 8px;
+  background: gold;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.hero-buttons button:hover {
+  transform: scale(1.1);
+}
+
+/* Chapters */
+.chapters {
+  padding: 70px 20px;
+  text-align: center;
+  background: white;
+}
+
+.chapters h2 {
+  font-size: 2.5rem;
+  color: #8a2be2;
+  margin-bottom: 40px;
+}
+
+.chapter-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.chapter-card {
+  background: #f5e1da;
+  padding: 25px;
+  width: 300px;
+  border-radius: 15px;
+  transition: 0.3s;
+}
+
+.chapter-card:hover {
+  transform: scale(1.05);
+}
+
+/* Review */
+.review-section {
+  padding: 70px 20px;
+  background: linear-gradient(135deg, #fff, #f5e1da);
+  text-align: center;
+}
+
+.review-section h2 {
+  font-size: 2.5rem;
+  color: #8a2be2;
+}
+
+.review-subtitle {
+  margin-bottom: 30px;
+  opacity: 0.8;
+}
+
+.review-section form {
+  max-width: 500px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.review-section label {
+  display: block;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.review-section input,
+.review-section textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.review-section button {
+  width: 100%;
+  padding: 12px;
+  background: #8a2be2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.review-section button:hover {
+  background: #6a1bbd;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  background: rgba(0,0,0,0.95);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.modal iframe {
+  width: 90%;
+  height: 90%;
+  margin: 5%;
+  border-radius: 12px;
+}
+
+.close {
+  position: absolute;
+  right: 30px;
+  top: 20px;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+/* Canvas */
+#particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
