@@ -5,8 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Echoes of an Unsaid Goodbye</title>
 
-  <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -16,7 +19,6 @@
     <h1 class="title">Echoes of an Unsaid Goodbye</h1>
     <p class="subtitle">— Misery of a Man — The Tales —</p>
     <p class="feedback-text">GIMME YOUR FEEDBACK, SCROLL DOWN & SHARE YOUR FEELINGS 😉</p>
-
 
     <div class="hero-buttons">
       <button id="readBook">Read Entire Tales</button>
@@ -30,18 +32,15 @@
 <!-- Chapters -->
 <section class="chapters">
   <h2>Chapters</h2>
-
   <div class="chapter-cards">
     <div class="chapter-card">
       <h3>Chapter 1</h3>
       <p>— The First Meet — Love at First Sight, My Angel of Light —</p>
     </div>
-
     <div class="chapter-card">
       <h3>Chapter 2</h3>
       <p>— Hidden Love — Care Turned Into Silence —</p>
     </div>
-
     <div class="chapter-card">
       <h3>Chapter 3</h3>
       <p>— The Unsaid Goodbye — Where Words Never Spoke —</p>
@@ -55,23 +54,17 @@
   <p class="review-subtitle">Your words mean everything 💭</p>
 
   <form action="https://formspree.io/f/xaqjzgel" method="POST">
-  <!-- Redirect after submission -->
-  <input type="hidden" name="_next" value="thankyou.html">
-
-  <label>
-    Your Email
-    <input type="email" name="email" required placeholder="you@example.com">
-  </label>
-
-  <label>
-    Your Review
-    <textarea name="message" required placeholder="Write what you felt..."></textarea>
-  </label>
-
-  <!-- Submit button -->
-  <button type="submit">Send Review</button>
-</form>
-
+    <input type="hidden" name="_next" value="thankyou.html">
+    <label>
+      Your Email
+      <input type="email" name="email" required placeholder="you@example.com">
+    </label>
+    <label>
+      Your Review
+      <textarea name="message" required placeholder="Write what you felt..."></textarea>
+    </label>
+    <button type="submit">Send Review</button>
+  </form>
 </section>
 
 <!-- PDF Modal -->
@@ -80,6 +73,7 @@
   <iframe id="pdfFrame"></iframe>
 </div>
 
+<!-- JS -->
 <script src="script.js"></script>
 </body>
 </html>
