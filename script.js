@@ -20,7 +20,7 @@ readBtn.addEventListener('click', () => {
 downloadBtn.addEventListener('click', () => {
   const link = document.createElement('a');
   link.href = pdfFile;
-  link.download = 'Echoes-of-an-Unsaid-Goodbye.pdf';
+  link.download = 'https://github.com/LIKITH-3012-MAC/Echoes-of-an-Unsaid-Goodbye/blob/main/Echoes%20of%20an%20Unsaid%20Goodbyes.pdf';
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
