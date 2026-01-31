@@ -4,17 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Echoes of an Unsaid Goodbye</title>
-
-  <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css">
-
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- Hero Section -->
   <section class="hero">
+    <canvas id="particles"></canvas>
     <div class="hero-content">
       <h1 class="title">Echoes of an Unsaid Goodbye</h1>
       <p class="subtitle">— Misery of a Man — The Tales —</p>
@@ -25,11 +21,8 @@
         <button id="downloadBook">Download PDF</button>
       </div>
     </div>
-
-    <canvas id="particles"></canvas>
   </section>
 
-  <!-- Chapters -->
   <section class="chapters">
     <h2>Chapters</h2>
     <div class="chapter-cards">
@@ -37,12 +30,10 @@
         <h3>Chapter 1</h3>
         <p>— The First Meet — Love at First Sight, My Angel of Light —</p>
       </div>
-
       <div class="chapter-card">
         <h3>Chapter 2</h3>
         <p>— Hidden Love — Care Turned Into Silence —</p>
       </div>
-
       <div class="chapter-card">
         <h3>Chapter 3</h3>
         <p>— The Unsaid Goodbye — Where Words Never Spoke —</p>
@@ -50,7 +41,6 @@
     </div>
   </section>
 
-  <!-- Review Section -->
   <section class="review-section">
     <h2>Leave a Review</h2>
     <p class="review-subtitle">Your words mean everything 💭</p>
@@ -58,27 +48,27 @@
     <form action="https://formspree.io/f/xaqjzgel" method="POST">
       <input type="hidden" name="_next" value="thankyou.html">
 
-      <label>
-        Your Email
-        <input type="email" name="email" required placeholder="you@example.com">
-      </label>
+      <div class="form-group">
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" required placeholder="you@example.com">
+      </div>
 
-      <label>
-        Your Review
-        <textarea name="message" required placeholder="Write what you felt..."></textarea>
-      </label>
+      <div class="form-group">
+        <label for="message">Your Review</label>
+        <textarea id="message" name="message" required placeholder="Write what you felt..."></textarea>
+      </div>
 
       <button type="submit">Send Review</button>
     </form>
   </section>
 
-  <!-- PDF Modal -->
-  <div id="pdfModal" class="modal">
-    <span class="close">&times;</span>
-    <iframe id="pdfFrame"></iframe>
+  <div id="pdfModal" class="modal" role="dialog" aria-modal="true">
+    <span class="close" aria-label="Close Modal">&times;</span>
+    <div class="modal-content">
+      <iframe id="pdfFrame" title="Book Viewer"></iframe>
+    </div>
   </div>
 
-  <!-- Script -->
   <script src="script.js"></script>
 </body>
 </html>
