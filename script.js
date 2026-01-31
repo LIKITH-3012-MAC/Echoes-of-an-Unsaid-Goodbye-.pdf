@@ -1,4 +1,3 @@
-// PDF Handling
 const pdfFile = 'https://pdfhost.io/v/bxCpZ8TVVm_Echoes_of_an_Unsaid_Goodbye';
 
 const readBtn = document.getElementById('readBook');
@@ -11,58 +10,59 @@ const closeModal = document.querySelector('.close');
 readBtn.onclick = () => {
   pdfFrame.src = pdfFile;
   modal.style.display = 'block';
+  document.body.style.overflow = 'hidden'; // Prevent scrolling background
 };
 
-// Download PDF
+// Download PDF 
+// Note: Since pdfhost is a third party, we open it in a new tab 
+// as browser security prevents forced downloads from external domains.
 downloadBtn.onclick = () => {
-  const link = document.createElement('a');
-  link.href = pdfFile;
-  link.target = '_blank'; // Ensures download works cross-browser
-  link.download = 'Echoes_of_an_Unsaid_Goodbye.pdf';
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+  window.open(pdfFile, '_blank');
 };
 
-// Close modal
-closeModal.onclick = () => {
+// Close functions
+const closeAll = () => {
   modal.style.display = 'none';
   pdfFrame.src = '';
+  document.body.style.overflow = 'auto';
 };
 
-// Close modal on outside click
-window.onclick = e => {
-  if (e.target === modal) {
-    modal.style.display = 'none';
-    pdfFrame.src = '';
-  }
-};
+closeModal.onclick = closeAll;
+window.onclick = e => { if (e.target === modal) closeAll(); };
 
-// Particles Background
+// Optimized Particles Background
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
 let particles = [];
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  initParticles();
+}
 
 class Particle {
   constructor() {
+    this.reset();
+  }
+  reset() {
     this.x = Math.random() * canvas.width;
     this.y = Math.random() * canvas.height;
-    this.size = Math.random() * 2 + 1;
-    this.dx = Math.random() - 0.5;
-    this.dy = Math.random() - 0.5;
+    this.size = Math.random() * 2 + 0.5;
+    this.speedX = (Math.random() - 0.5) * 0.5;
+    this.speedY = (Math.random() - 0.5) * 0.5;
+    this.opacity = Math.random() * 0.5 + 0.2;
   }
   update() {
-    this.x += this.dx;
-    this.y += this.dy;
-    if (this.x < 0 || this.x > canvas.width) this.dx *= -1;
-    if (this.y < 0 || this.y > canvas.height) this.dy *= -1;
+    this.x += this.speedX;
+    this.y += this.speedY;
+    if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
+        this.reset();
+    }
   }
   draw() {
-    ctx.fillStyle = 'rgba(255,255,255,0.8)';
+    ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
     ctx.fill();
@@ -71,21 +71,21 @@ class Particle {
 
 function initParticles() {
   particles = [];
-  for (let i = 0; i < 100; i++) particles.push(new Particle());
+  const count = (canvas.width * canvas.height) / 15000; // Density based on screen size
+  for (let i = 0; i < count; i++) {
+    particles.push(new Particle());
+  }
 }
 
-function animateParticles() {
+function animate() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  particles.forEach(p => { p.update(); p.draw(); });
-  requestAnimationFrame(animateParticles);
+  particles.forEach(p => {
+    p.update();
+    p.draw();
+  });
+  requestAnimationFrame(animate);
 }
 
-initParticles();
-animateParticles();
-
-// Handle resize
-window.addEventListener('resize', () => {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  initParticles();
-});
+window.addEventListener('resize', resize);
+resize();
+animate();
