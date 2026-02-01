@@ -1,4 +1,4 @@
-const pdfFile = 'https://pdfhost.io/v/bxCpZ8TVVm_Echoes_of_an_Unsaid_Goodbye';
+const pdfFile = 'https://pdfhost.io/v/NwF3XcDQq5_Echoes_of_an_Unsaid_Goodbye!M';
 
 const readBtn = document.getElementById('readBook');
 const downloadBtn = document.getElementById('downloadBook');
